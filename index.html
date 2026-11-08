@@ -89,7 +89,6 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between}
 .tab.on,.tab:hover{border-color:var(--gold);color:var(--gold)}
 .grid{columns:3;column-gap:18px}
 .item{break-inside:avoid;margin-bottom:18px;cursor:zoom-in;position:relative;overflow:hidden}
-.item .ph{aspect-ratio:4/5}
 .item:hover img{transform:scale(1.05)}
 .item::after{content:"View";position:absolute;inset:auto 0 0 0;padding:40px 0 18px;text-align:center;font-size:.66rem;letter-spacing:.4em;text-transform:uppercase;background:linear-gradient(transparent,rgba(0,0,0,.65));opacity:0;transition:.4s}
 .item:hover::after{opacity:1}
@@ -169,6 +168,7 @@ footer .logo{display:block;margin-bottom:14px;color:var(--ink)}
 @media(max-width:520px){.grid{columns:1}.steps{grid-template-columns:1fr}.row{grid-template-columns:1fr}.tabs{flex-wrap:wrap}}
 .herologo{width:min(78vw,760px);margin:0 auto}.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 .hero h1{margin:1.4rem 0 1rem}
+.credits{margin-top:34px}.credits .credit{margin-top:10px}.credit.hide{display:none}
 </style>
 </head>
 <body>
@@ -246,18 +246,21 @@ footer .logo{display:block;margin-bottom:14px;color:var(--ink)}
   <div class="wrap">
     <div class="pf-head reveal">
       <div>
-        <div class="eyebrow">Featured Collection</div>
-        <h2>Sweet <em>Seventeen</em></h2>
-        <p class="lead">Cresentia Audia — two moods, one story. Warm window light indoors, and a cool, windswept morning at the sea.</p>
+        <div class="eyebrow">Selected Work</div>
+        <h2>The <em>Portfolio</em></h2>
+        <p class="lead" id="pfLead"></p>
       </div>
       <div class="tabs" id="tabs">
         <button class="tab on" data-f="all">All</button>
-        <button class="tab" data-f="warm">Golden Hour</button>
-        <button class="tab" data-f="sea">Coastal Blue</button>
+        <button class="tab" data-f="ss17">Sweet Seventeen</button>
+        <button class="tab" data-f="grad">Graduation</button>
       </div>
     </div>
     <div class="grid" id="grid"></div>
-    <p class="credit reveal"><b>Cresentia Audia</b> · Sweet Seventeen · Tirang Beach, Semarang · 2026 &nbsp;—&nbsp; Photography by <b>Excel Dyfans</b></p>
+    <div class="credits reveal" id="credits">
+      <p class="credit" data-c="ss17"><b>Cresentia Audia</b> · Sweet Seventeen · Tirang Beach, Semarang · 2026 &nbsp;—&nbsp; Photography by <b>Excel Dyfans</b></p>
+      <p class="credit" data-c="grad"><b>Joe, Marvel &amp; Lorenzo</b> · Graduation · Binus University Semarang · 2026 &nbsp;—&nbsp; Photography by <b>Excel Dyfans</b> &amp; <b>Oei Ricky</b></p>
+    </div>
   </div>
 </section>
 
@@ -363,33 +366,56 @@ footer .logo{display:block;margin-bottom:14px;color:var(--ink)}
 <div class="lb" id="lb"><button class="x" id="lx">×</button><button class="p" id="lp">‹</button><img id="li" alt=""><button class="nx" id="ln">›</button></div>
 
 <script>
-/* ---- Portfolio data: file names inside /images ---- */
+/* ---- Portfolio data: file names inside /images (client-name_number.jpg) ---- */
 const photos=[
- {f:'cresentia-audia_01.jpg',t:'warm',alt:'Chin on hand, golden window light'},
- {f:'cresentia-audia_02.jpg',t:'sea', alt:'Standing in the surf with a film camera'},
- {f:'cresentia-audia_03.jpg',t:'warm',alt:'Resting on a chair back by the wooden doors'},
- {f:'cresentia-audia_04.jpg',t:'warm',alt:'Against the wire-mesh wall and greenery'},
- {f:'cresentia-audia_05.jpg',t:'warm',alt:'Seated portrait in warm light'},
- {f:'cresentia-audia_06.jpg',t:'sea', alt:'Portrait in the waves'},
- {f:'cresentia-audia_07.jpg',t:'sea', alt:'Raising a vintage camera on the shore'},
- {f:'cresentia-audia_08.jpg',t:'sea', alt:'Seated on the pier above the sea'},
- {f:'cresentia-audia_09.jpg',t:'sea', alt:'Looking up from the foam, aerial view'},
- {f:'cresentia-audia_10.jpg',t:'sea', alt:'Checking the camera on the pier'},
- {f:'cresentia-audia_11.jpg',t:'sea', alt:'Crouching on the shore with a camera'}
+ {"f": "cresentia-audia_01.jpg", "c": "ss17", "w": 2061, "h": 2576, "alt": "Chin on hand, golden window light"},
+ {"f": "cresentia-audia_02.jpg", "c": "ss17", "w": 2061, "h": 2576, "alt": "Standing in the surf with a film camera"},
+ {"f": "cresentia-audia_03.jpg", "c": "ss17", "w": 2061, "h": 2576, "alt": "Resting on a chair back by the wooden doors"},
+ {"f": "cresentia-audia_04.jpg", "c": "ss17", "w": 2061, "h": 2576, "alt": "Against the wire-mesh wall and greenery"},
+ {"f": "cresentia-audia_05.jpg", "c": "ss17", "w": 2061, "h": 2576, "alt": "Seated portrait in warm light"},
+ {"f": "cresentia-audia_06.jpg", "c": "ss17", "w": 2061, "h": 2576, "alt": "Portrait in the waves"},
+ {"f": "cresentia-audia_07.jpg", "c": "ss17", "w": 2061, "h": 2576, "alt": "Raising a vintage camera on the shore"},
+ {"f": "cresentia-audia_08.jpg", "c": "ss17", "w": 2061, "h": 2576, "alt": "Seated on the pier above the sea"},
+ {"f": "cresentia-audia_09.jpg", "c": "ss17", "w": 2061, "h": 2576, "alt": "Looking up from the foam, aerial view"},
+ {"f": "cresentia-audia_10.jpg", "c": "ss17", "w": 2061, "h": 2576, "alt": "Checking the camera on the pier"},
+ {"f": "cresentia-audia_11.jpg", "c": "ss17", "w": 2061, "h": 2576, "alt": "Crouching on the shore with a camera"},
+ {"f": "joe-marvel-lorenzo_01.jpg", "c": "grad", "w": 1487, "h": 1983, "alt": "Three graduates pointing at the camera, seen from above"},
+ {"f": "joe-marvel-lorenzo_02.jpg", "c": "grad", "w": 1848, "h": 1651, "alt": "Trio pointing toward each other on a curved walkway"},
+ {"f": "joe-marvel-lorenzo_03.jpg", "c": "grad", "w": 1760, "h": 2200, "alt": "Playful flash portrait on film with the diploma folder"},
+ {"f": "joe-marvel-lorenzo_04.jpg", "c": "grad", "w": 2200, "h": 1596, "alt": "Walking past the terracotta brick wall"},
+ {"f": "joe-marvel-lorenzo_05.jpg", "c": "grad", "w": 1466, "h": 2200, "alt": "Cap toss on the basketball court"},
+ {"f": "joe-marvel-lorenzo_06.jpg", "c": "grad", "w": 2200, "h": 1602, "alt": "Trio on a stone bench making peace signs"},
+ {"f": "joe-marvel-lorenzo_07.jpg", "c": "grad", "w": 2200, "h": 1466, "alt": "Three diploma folders on a stone ledge"},
+ {"f": "joe-marvel-lorenzo_08.jpg", "c": "grad", "w": 1467, "h": 2200, "alt": "Leaning on the railing with the sea behind"},
+ {"f": "joe-marvel-lorenzo_09.jpg", "c": "grad", "w": 1467, "h": 2200, "alt": "Diploma folder detail"},
+ {"f": "joe-marvel-lorenzo_10.jpg", "c": "grad", "w": 1466, "h": 2200, "alt": "Reading in the library"},
+ {"f": "joe-marvel-lorenzo_11.jpg", "c": "grad", "w": 2200, "h": 1467, "alt": "Portrait between the library shelves"},
+ {"f": "joe-marvel-lorenzo_12.jpg", "c": "grad", "w": 1466, "h": 2200, "alt": "Peeking around the corner, three in a row"},
+ {"f": "joe-marvel-lorenzo_13.jpg", "c": "grad", "w": 1466, "h": 2200, "alt": "Peeking around the corner, fists forward"},
+ {"f": "joe-marvel-lorenzo_14.jpg", "c": "grad", "w": 1466, "h": 2200, "alt": "Seated in the classroom"}
 ];
-const grid=document.getElementById('grid');
+const leads={
+ all:"Sweet Seventeen, Graduation and more — every session shot with the same quiet light and honest emotion.",
+ ss17:"Cresentia Audia — two moods, one story. Warm window light indoors, and a cool, windswept morning at the sea.",
+ grad:"Joe, Marvel & Lorenzo — three friends, one chapter closed. Playful, warm and full of energy across Binus Semarang."
+};
+const grid=document.getElementById('grid'),pfLead=document.getElementById('pfLead');
 photos.forEach((p,i)=>{
   const d=document.createElement('div');
-  d.className='item reveal';d.dataset.t=p.t;d.dataset.i=i;
-  d.innerHTML=`<div class="ph ${p.t==='sea'?'blue':''}"><img src="images/${p.f}" alt="${p.alt}" loading="lazy" onerror="this.remove()"></div>`;
+  d.className='item reveal';d.dataset.c=p.c;d.dataset.i=i;
+  d.innerHTML=`<div class="ph ${p.c==='ss17'?'blue':''}" style="aspect-ratio:${p.w}/${p.h}"><img src="images/${p.f}" alt="${p.alt}" width="${p.w}" height="${p.h}" loading="lazy" onerror="this.remove()"></div>`;
   grid.appendChild(d);
 });
 
 /* filter */
-document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{
-  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));b.classList.add('on');
-  document.querySelectorAll('.item').forEach(it=>it.classList.toggle('hide',b.dataset.f!=='all'&&it.dataset.t!==b.dataset.f));
-});
+function setFilter(f){
+  document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x.dataset.f===f));
+  document.querySelectorAll('.item').forEach(it=>it.classList.toggle('hide',f!=='all'&&it.dataset.c!==f));
+  document.querySelectorAll('#credits .credit').forEach(c=>c.classList.toggle('hide',f!=='all'&&c.dataset.c!==f));
+  pfLead.textContent=leads[f];
+}
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>setFilter(b.dataset.f));
+setFilter('all');
 
 /* lightbox */
 let cur=0;
