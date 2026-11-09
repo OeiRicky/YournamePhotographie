@@ -9,167 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#0a0908; --bg2:#12100e; --ink:#f3ede4; --mute:#a79f93; --line:rgba(243,237,228,.14);
-  --gold:#c9a66b; --serif:'Cormorant Garamond',Georgia,serif; --sans:'Jost',system-ui,sans-serif;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.7;-webkit-font-smoothing:antialiased}
-img{display:block;max-width:100%}
-a{color:inherit;text-decoration:none}
-.wrap{max-width:1280px;margin:0 auto;padding:0 clamp(20px,4vw,56px)}
-.eyebrow{font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;color:var(--gold)}
-h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.1}
-h2{font-size:clamp(2rem,4.5vw,3.6rem);margin:.6rem 0 1.2rem}
-h2 em{font-style:italic;color:var(--gold)}
-.lead{color:var(--mute);max-width:56ch;font-size:1.02rem}
-section{padding:clamp(72px,11vw,150px) 0}
-
-/* nav */
-nav{position:fixed;inset:0 0 auto 0;z-index:50;transition:.4s;padding:22px 0}
-nav.solid{background:rgba(10,9,8,.88);backdrop-filter:blur(12px);padding:14px 0;border-bottom:1px solid var(--line)}
-nav .wrap{display:flex;align-items:center;justify-content:space-between}
-.logo{font-family:var(--serif);font-weight:600;letter-spacing:.5em;font-size:1.05rem;text-transform:uppercase;white-space:nowrap}
-.logo span{font-weight:400;color:var(--mute)}
-.links{display:flex;gap:34px;align-items:center}
-.links a{font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;color:var(--ink);opacity:.8;transition:.3s}
-.links a:hover{opacity:1;color:var(--gold)}
-.btn{display:inline-block;border:1px solid var(--gold);color:var(--gold)!important;padding:13px 30px;font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;transition:.35s;opacity:1!important;cursor:pointer;background:transparent;font-family:var(--sans)}
-.btn:hover{background:var(--gold);color:#0a0908!important}
-.btn.fill{background:var(--gold);color:#0a0908!important}
-.btn.fill:hover{background:transparent;color:var(--gold)!important}
-.burger{display:none;background:none;border:0;color:var(--ink);font-size:1.6rem;cursor:pointer}
-
-/* image fallback so layout looks intentional before photos are added */
-.ph{background:linear-gradient(160deg,#2a1d12,#0e0b09 70%);position:relative;overflow:hidden}
-.ph.blue{background:linear-gradient(160deg,#1c3447,#0b141b 70%)}
-.ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}
-
-/* hero */
-.hero{min-height:100vh;display:grid;place-items:center;text-align:center;position:relative;padding:0}
-.hero .bg{position:absolute;inset:0}
-.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,9,8,.55),rgba(10,9,8,.35) 40%,rgba(10,9,8,.92))}
-.hero .bg img{object-position:50% 12%;transform:scale(1.05);animation:zoom 22s ease-out forwards}
-@keyframes zoom{to{transform:scale(1.14)}}
-.hero-in{position:relative;z-index:2;padding:0 20px}
-.hero h1{font-size:clamp(2.6rem,8.5vw,7.4rem);letter-spacing:.2em;text-transform:uppercase;font-weight:500;margin:1rem 0 .4rem}
-.hero .sub{font-family:var(--serif);font-style:italic;font-size:clamp(1.1rem,2.4vw,1.7rem);color:var(--ink);opacity:.9}
-.hero .cta{margin-top:44px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
-.scroll{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:2;font-size:.62rem;letter-spacing:.4em;text-transform:uppercase;color:var(--mute)}
-.scroll::after{content:"";display:block;width:1px;height:46px;background:var(--gold);margin:12px auto 0;animation:drop 2s infinite}
-@keyframes drop{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
-
-/* about */
-.about{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,100px);align-items:center}
-.about .imgs{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.about .imgs .ph{aspect-ratio:4/5}
-.about .imgs .ph:nth-child(2){margin-top:60px}
-.stats{display:flex;gap:44px;margin-top:40px;flex-wrap:wrap}
-.stats b{display:block;font-family:var(--serif);font-size:2.6rem;font-weight:400;color:var(--gold);line-height:1}
-.stats small{font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--mute)}
-
-/* services */
-.services{background:var(--bg2)}
-.svc{border-top:1px solid var(--line);display:grid;grid-template-columns:90px 1.1fr 1.4fr auto;gap:30px;align-items:center;padding:38px 0;transition:.4s}
-.svc:last-child{border-bottom:1px solid var(--line)}
-.svc:hover{padding-left:18px}
-.svc:hover h3{color:var(--gold)}
-.svc .n{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:1.3rem}
-.svc h3{font-size:clamp(1.7rem,3vw,2.5rem);transition:.3s}
-.svc p{color:var(--mute);font-size:.95rem}
-.svc a{font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);white-space:nowrap}
-.svc a::after{content:" →"}
-
-/* portfolio */
-.pf-head{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:56px}
-.tabs{display:flex;gap:10px}
-.tab{background:none;border:1px solid var(--line);color:var(--mute);padding:10px 22px;font:inherit;font-size:.7rem;letter-spacing:.26em;text-transform:uppercase;cursor:pointer;transition:.3s}
-.tab.on,.tab:hover{border-color:var(--gold);color:var(--gold)}
-.grid{columns:3;column-gap:18px}
-.item{break-inside:avoid;margin-bottom:18px;cursor:zoom-in;position:relative;overflow:hidden}
-.item:hover img{transform:scale(1.05)}
-.item::after{content:"View";position:absolute;inset:auto 0 0 0;padding:40px 0 18px;text-align:center;font-size:.66rem;letter-spacing:.4em;text-transform:uppercase;background:linear-gradient(transparent,rgba(0,0,0,.65));opacity:0;transition:.4s}
-.item:hover::after{opacity:1}
-.item.hide{display:none}
-.credit{margin-top:34px;color:var(--mute);font-size:.82rem;letter-spacing:.06em}
-.credit b{font-weight:400;color:var(--ink)}
-
-/* feature band */
-.band{position:relative;min-height:70vh;display:grid;place-items:center;text-align:center;padding:0}
-.band .bg{position:absolute;inset:0}
-.band .bg::after{content:"";position:absolute;inset:0;background:rgba(8,10,12,.55)}
-.band blockquote{position:relative;z-index:2;font-family:var(--serif);font-style:italic;font-size:clamp(1.7rem,4vw,3.2rem);max-width:22ch;line-height:1.25;padding:0 20px}
-.band cite{display:block;margin-top:22px;font-family:var(--sans);font-style:normal;font-size:.7rem;letter-spacing:.38em;text-transform:uppercase;color:var(--gold)}
-
-/* process */
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:34px;margin-top:60px}
-.step{border-top:1px solid var(--gold);padding-top:22px}
-.step span{font-family:var(--serif);font-size:2.4rem;color:var(--gold);font-style:italic}
-.step h3{font-size:1.5rem;margin:.3rem 0 .6rem}
-.step p{color:var(--mute);font-size:.92rem}
-
-/* packages */
-.pk{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:56px}
-.card{border:1px solid var(--line);padding:42px 34px;background:var(--bg2);transition:.4s}
-.card:hover{border-color:var(--gold);transform:translateY(-6px)}
-.card.hl{border-color:var(--gold)}
-.card h3{font-size:2rem}
-.card .tag{font-size:.66rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold)}
-.card ul{list-style:none;margin:24px 0 30px}
-.card li{padding:9px 0;border-bottom:1px solid var(--line);color:var(--mute);font-size:.92rem}
-.card li::before{content:"✦ ";color:var(--gold);font-size:.7rem}
-
-/* contact */
-.contact{background:var(--bg2)}
-.cgrid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(30px,6vw,100px)}
-.cinfo p{margin:8px 0}
-.cinfo .big{font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.3rem);display:block;margin:6px 0 24px;transition:.3s}
-.cinfo a.big:hover{color:var(--gold)}
-form{display:grid;gap:18px}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-label{font-size:.66rem;letter-spacing:.3em;text-transform:uppercase;color:var(--mute);display:block;margin-bottom:6px}
-input,select,textarea{width:100%;background:transparent;border:0;border-bottom:1px solid var(--line);color:var(--ink);padding:10px 0;font:inherit;font-size:1rem;outline:none;transition:.3s;border-radius:0}
-select option{background:#12100e}
-input:focus,select:focus,textarea:focus{border-color:var(--gold)}
-textarea{resize:vertical;min-height:90px}
-
-footer{padding:50px 0;border-top:1px solid var(--line);text-align:center;color:var(--mute);font-size:.78rem;letter-spacing:.14em}
-footer .logo{display:block;margin-bottom:14px;color:var(--ink)}
-.float{position:fixed;right:22px;bottom:22px;z-index:60;background:var(--gold);color:#0a0908;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;box-shadow:0 8px 30px rgba(0,0,0,.5);transition:.3s}
-.float:hover{transform:scale(1.08)}
-.float svg{width:28px;height:28px;fill:#0a0908}
-
-/* lightbox */
-.lb{position:fixed;inset:0;background:rgba(5,4,4,.96);z-index:100;display:none;place-items:center;padding:30px}
-.lb.on{display:grid}
-.lb img{max-height:88vh;max-width:92vw;object-fit:contain}
-.lb button{position:absolute;background:none;border:0;color:var(--ink);font-size:2.2rem;cursor:pointer;padding:16px;opacity:.7}
-.lb button:hover{opacity:1;color:var(--gold)}
-.lb .x{top:10px;right:14px}.lb .p{left:6px;top:50%}.lb .nx{right:6px;top:50%}
-
-.reveal{opacity:0;transform:translateY(34px);transition:1s cubic-bezier(.2,.7,.2,1)}
-.reveal.in{opacity:1;transform:none}
-
-@media(max-width:960px){
-  .links{position:fixed;inset:0;background:rgba(10,9,8,.97);flex-direction:column;justify-content:center;gap:30px;display:none}
-  .links.open{display:flex}
-  .links a{font-size:.9rem}
-  .burger{display:block;position:relative;z-index:70}
-  .about,.cgrid{grid-template-columns:1fr}
-  .svc{grid-template-columns:50px 1fr;gap:10px 16px}
-  .svc p,.svc a{grid-column:2}
-  .grid{columns:2}
-  .steps{grid-template-columns:1fr 1fr}
-  .pk{grid-template-columns:1fr}
-  .logo{letter-spacing:.34em;font-size:.9rem}
-}
-@media(max-width:520px){.grid{columns:1}.steps{grid-template-columns:1fr}.row{grid-template-columns:1fr}.tabs{flex-wrap:wrap}}
-.herologo{width:min(78vw,760px);margin:0 auto}.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-.hero h1{margin:1.4rem 0 1rem}
-.credits{margin-top:34px}.credits .credit{margin-top:10px}.credit.hide{display:none}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -248,19 +88,11 @@ footer .logo{display:block;margin-bottom:14px;color:var(--ink)}
       <div>
         <div class="eyebrow">Selected Work</div>
         <h2>The <em>Portfolio</em></h2>
-        <p class="lead" id="pfLead"></p>
+        <p class="lead">Every event is its own story. Open a project to see the full collection.</p>
       </div>
-      <div class="tabs" id="tabs">
-        <button class="tab on" data-f="all">All</button>
-        <button class="tab" data-f="ss17">Sweet Seventeen</button>
-        <button class="tab" data-f="grad">Graduation</button>
-      </div>
+      <div class="tabs" id="tabs"></div>
     </div>
-    <div class="grid" id="grid"></div>
-    <div class="credits reveal" id="credits">
-      <p class="credit" data-c="ss17"><b>Cresentia Audia</b> · Sweet Seventeen · Tirang Beach, Semarang · 2026 &nbsp;—&nbsp; Photography by <b>Excel Dyfans</b></p>
-      <p class="credit" data-c="grad"><b>Joe, Marvel &amp; Lorenzo</b> · Graduation · Binus University Semarang · 2026 &nbsp;—&nbsp; Photography by <b>Excel Dyfans</b> &amp; <b>Oei Ricky</b></p>
-    </div>
+    <div class="projects" id="projects"></div>
   </div>
 </section>
 
@@ -363,77 +195,26 @@ footer .logo{display:block;margin-bottom:14px;color:var(--ink)}
   <svg viewBox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.38A9.9 9.9 0 1 0 12.04 2Zm5.8 14.1c-.25.7-1.45 1.34-2 1.4-.52.06-1.17.09-1.88-.12a17 17 0 0 1-1.7-.63c-3-1.3-4.95-4.33-5.1-4.53-.15-.2-1.22-1.62-1.22-3.1 0-1.47.77-2.2 1.04-2.5.27-.3.6-.37.8-.37h.58c.19 0 .44-.07.68.52.25.6.85 2.07.92 2.22.08.15.13.33.03.52-.1.2-.15.32-.3.5-.15.17-.32.38-.45.51-.15.15-.3.31-.13.6.17.3.77 1.27 1.65 2.05 1.13 1 2.09 1.32 2.39 1.47.3.15.47.12.65-.07.17-.2.75-.87.95-1.17.2-.3.4-.25.67-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.35.08.12.08.72-.17 1.42Z"/></svg>
 </a>
 
-<div class="lb" id="lb"><button class="x" id="lx">×</button><button class="p" id="lp">‹</button><img id="li" alt=""><button class="nx" id="ln">›</button></div>
 
+<script src="projects.js"></script>
+<script src="site.js"></script>
 <script>
-/* ---- Portfolio data: file names inside /images (client-name_number.jpg) ---- */
-const photos=[
- {"f": "cresentia-audia_01.jpg", "c": "ss17", "w": 2061, "h": 2576, "alt": "Chin on hand, golden window light"},
- {"f": "cresentia-audia_02.jpg", "c": "ss17", "w": 2061, "h": 2576, "alt": "Standing in the surf with a film camera"},
- {"f": "cresentia-audia_03.jpg", "c": "ss17", "w": 2061, "h": 2576, "alt": "Resting on a chair back by the wooden doors"},
- {"f": "cresentia-audia_04.jpg", "c": "ss17", "w": 2061, "h": 2576, "alt": "Against the wire-mesh wall and greenery"},
- {"f": "cresentia-audia_05.jpg", "c": "ss17", "w": 2061, "h": 2576, "alt": "Seated portrait in warm light"},
- {"f": "cresentia-audia_06.jpg", "c": "ss17", "w": 2061, "h": 2576, "alt": "Portrait in the waves"},
- {"f": "cresentia-audia_07.jpg", "c": "ss17", "w": 2061, "h": 2576, "alt": "Raising a vintage camera on the shore"},
- {"f": "cresentia-audia_08.jpg", "c": "ss17", "w": 2061, "h": 2576, "alt": "Seated on the pier above the sea"},
- {"f": "cresentia-audia_09.jpg", "c": "ss17", "w": 2061, "h": 2576, "alt": "Looking up from the foam, aerial view"},
- {"f": "cresentia-audia_10.jpg", "c": "ss17", "w": 2061, "h": 2576, "alt": "Checking the camera on the pier"},
- {"f": "cresentia-audia_11.jpg", "c": "ss17", "w": 2061, "h": 2576, "alt": "Crouching on the shore with a camera"},
- {"f": "joe-marvel-lorenzo_01.jpg", "c": "grad", "w": 1487, "h": 1983, "alt": "Three graduates pointing at the camera, seen from above"},
- {"f": "joe-marvel-lorenzo_02.jpg", "c": "grad", "w": 1848, "h": 1651, "alt": "Trio pointing toward each other on a curved walkway"},
- {"f": "joe-marvel-lorenzo_03.jpg", "c": "grad", "w": 1760, "h": 2200, "alt": "Playful flash portrait on film with the diploma folder"},
- {"f": "joe-marvel-lorenzo_04.jpg", "c": "grad", "w": 2200, "h": 1596, "alt": "Walking past the terracotta brick wall"},
- {"f": "joe-marvel-lorenzo_05.jpg", "c": "grad", "w": 1466, "h": 2200, "alt": "Cap toss on the basketball court"},
- {"f": "joe-marvel-lorenzo_06.jpg", "c": "grad", "w": 2200, "h": 1602, "alt": "Trio on a stone bench making peace signs"},
- {"f": "joe-marvel-lorenzo_07.jpg", "c": "grad", "w": 2200, "h": 1466, "alt": "Three diploma folders on a stone ledge"},
- {"f": "joe-marvel-lorenzo_08.jpg", "c": "grad", "w": 1467, "h": 2200, "alt": "Leaning on the railing with the sea behind"},
- {"f": "joe-marvel-lorenzo_09.jpg", "c": "grad", "w": 1467, "h": 2200, "alt": "Diploma folder detail"},
- {"f": "joe-marvel-lorenzo_10.jpg", "c": "grad", "w": 1466, "h": 2200, "alt": "Reading in the library"},
- {"f": "joe-marvel-lorenzo_11.jpg", "c": "grad", "w": 2200, "h": 1467, "alt": "Portrait between the library shelves"},
- {"f": "joe-marvel-lorenzo_12.jpg", "c": "grad", "w": 1466, "h": 2200, "alt": "Peeking around the corner, three in a row"},
- {"f": "joe-marvel-lorenzo_13.jpg", "c": "grad", "w": 1466, "h": 2200, "alt": "Peeking around the corner, fists forward"},
- {"f": "joe-marvel-lorenzo_14.jpg", "c": "grad", "w": 1466, "h": 2200, "alt": "Seated in the classroom"}
-];
-const leads={
- all:"Sweet Seventeen, Graduation and more — every session shot with the same quiet light and honest emotion.",
- ss17:"Cresentia Audia — two moods, one story. Warm window light indoors, and a cool, windswept morning at the sea.",
- grad:"Joe, Marvel & Lorenzo — three friends, one chapter closed. Playful, warm and full of energy across Binus Semarang."
-};
-const grid=document.getElementById('grid'),pfLead=document.getElementById('pfLead');
-photos.forEach((p,i)=>{
-  const d=document.createElement('div');
-  d.className='item reveal';d.dataset.c=p.c;d.dataset.i=i;
-  d.innerHTML=`<div class="ph ${p.c==='ss17'?'blue':''}" style="aspect-ratio:${p.w}/${p.h}"><img src="images/${p.f}" alt="${p.alt}" width="${p.w}" height="${p.h}" loading="lazy" onerror="this.remove()"></div>`;
-  grid.appendChild(d);
+/* project cards */
+const pgrid=document.getElementById('projects'),tabs=document.getElementById('tabs');
+PROJECTS.forEach((p,i)=>{
+  const a=document.createElement('a');
+  a.className='pcard reveal';a.href='project.html?p='+p.slug;a.dataset.cat=p.category;
+  a.innerHTML=`<div class="pthumb ph"><img src="images/${p.cover}" style="object-position:${p.coverPos||'50% 50%'}" alt="${p.title} — ${p.category}" loading="lazy" onerror="this.remove()"><span class="pno">${String(i+1).padStart(2,'0')}</span><span class="ptype">${p.type}</span><span class="pview">View project →</span></div><h3>${p.title}</h3><div class="pmeta">${p.category} · ${p.photos.length} photos</div><p class="pdesc">${p.tagline}</p>`;
+  pgrid.appendChild(a);
 });
-
-/* filter */
-function setFilter(f){
-  document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x.dataset.f===f));
-  document.querySelectorAll('.item').forEach(it=>it.classList.toggle('hide',f!=='all'&&it.dataset.c!==f));
-  document.querySelectorAll('#credits .credit').forEach(c=>c.classList.toggle('hide',f!=='all'&&c.dataset.c!==f));
-  pfLead.textContent=leads[f];
-}
-document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>setFilter(b.dataset.f));
-setFilter('all');
-
-/* lightbox */
-let cur=0;
-const lb=document.getElementById('lb'),li=document.getElementById('li');
-const vis=()=>[...document.querySelectorAll('.item:not(.hide)')];
-function show(n){const v=vis();cur=(n+v.length)%v.length;const im=v[cur].querySelector('img');if(!im)return;li.src=im.src;li.alt=im.alt;lb.classList.add('on')}
-grid.addEventListener('click',e=>{const it=e.target.closest('.item');if(it)show(vis().indexOf(it))});
-document.getElementById('lx').onclick=()=>lb.classList.remove('on');
-document.getElementById('lp').onclick=()=>show(cur-1);
-document.getElementById('ln').onclick=()=>show(cur+1);
-lb.addEventListener('click',e=>{if(e.target===lb)lb.classList.remove('on')});
-addEventListener('keydown',e=>{if(!lb.classList.contains('on'))return;if(e.key==='Escape')lb.classList.remove('on');if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1)});
-
-/* nav */
-const nav=document.getElementById('nav'),links=document.getElementById('links');
-addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>60));
-document.getElementById('burger').onclick=()=>links.classList.toggle('open');
-links.querySelectorAll('a').forEach(a=>a.onclick=()=>links.classList.remove('open'));
+const cats=['All',...new Set(PROJECTS.map(p=>p.category))];
+cats.forEach((c,i)=>{
+  const b=document.createElement('button');b.className='tab'+(i?'':' on');b.textContent=c;
+  b.onclick=()=>{tabs.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x===b));
+    pgrid.querySelectorAll('.pcard').forEach(k=>k.classList.toggle('hide',c!=='All'&&k.dataset.cat!==c))};
+  tabs.appendChild(b);
+});
+if(cats.length<=2)tabs.style.display='none';
 
 /* service shortcuts preselect the form */
 document.querySelectorAll('[data-pick]').forEach(a=>a.addEventListener('click',()=>{document.getElementById('svc').value=a.dataset.pick}));
@@ -445,10 +226,7 @@ document.getElementById('form').addEventListener('submit',e=>{
   const msg=`Hello YourName Photographie,\n\nName: ${v('name')}\nService: ${v('svc')}\nEvent date: ${v('date')||'-'}\nLocation: ${v('loc')||'-'}\n\n${v('msg')}`;
   window.open('https://wa.me/628988974647?text='+encodeURIComponent(msg),'_blank');
 });
-
-/* reveal on scroll */
-const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+watchReveal();
 </script>
 </body>
 </html>
