@@ -110,11 +110,20 @@ h3{font-size:1.65rem}
 .pv-top{position:sticky;top:0;z-index:2;background:rgba(11,10,9,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .pv-top .wrap{display:flex;justify-content:space-between;align-items:center;height:62px}
 .pv-top button{background:none;border:0;cursor:pointer;font-size:.7rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);padding:10px 0}
-.pv-head{padding:60px 0 40px}
-.pv-head h2{margin:12px 0 10px}
+.pv-head{padding:calc(48px + env(safe-area-inset-top,0px)) 0 0}
+.back{background:none;border:0;cursor:pointer;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--mute);padding:10px 0;transition:color .3s,letter-spacing .4s}
+.back:hover{color:var(--gold);letter-spacing:.38em}
+.pv-head .eyebrow{margin-top:44px}
+.pv-head .lead{max-width:540px}
+.pv-meta{display:flex;flex-wrap:wrap;gap:22px 56px;margin:46px 0 56px;padding:26px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.pv-meta>div{min-width:0}
+.pv-meta dt{font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+.pv-meta dd{font-family:var(--serif);font-size:1.4rem;line-height:1.35;margin-top:2px}
+.pv-end{padding:10px 0 90px}
+.pv-head h2{font-size:clamp(2.8rem,9vw,6.5rem);line-height:1;margin:18px 0 30px}
 .credit{margin-top:18px;font-size:.7rem;letter-spacing:.26em;text-transform:uppercase;color:var(--mute)}
 .credit b{font-weight:400;color:var(--gold)}
-.pv-grid{columns:3;column-gap:16px;padding-bottom:90px}
+.pv-grid{columns:3;column-gap:16px;padding-bottom:30px}
 .pv-grid button{border:0;padding:0;cursor:zoom-in;display:block;width:100%;margin-bottom:16px;break-inside:avoid}
 .pv-grid img{height:auto}
 .pv-grid img{transition:transform .9s cubic-bezier(.2,.7,.2,1)}
@@ -359,7 +368,7 @@ footer a:hover{color:var(--gold)}
       <p class="lead">Dates fill up quickly. Send us a few details and we’ll reply on WhatsApp with availability and the full rate card.</p>
       <div style="margin-top:36px">
         <div class="eyebrow m">WhatsApp</div>
-        <a class="big" href="https://wa.me/628988974647" target="_blank" rel="noopener">+62 898-8974-647</a>
+        <a class="big" href="https://wa.me/628988974646" target="_blank" rel="noopener">+62 898-8974-646</a>
         <div class="eyebrow m">Instagram</div>
         <a class="big" href="https://www.instagram.com/yourname.photographie/" target="_blank" rel="noopener">@yourname.photographie</a>
         <div class="eyebrow m">Based in</div>
@@ -378,7 +387,7 @@ footer a:hover{color:var(--gold)}
       </div>
       <div><label for="msg">Tell us about your vision</label><textarea id="msg" placeholder="Photo only, or photo + video? Any mood or reference?"></textarea></div>
       <button class="btn fill" type="submit">Send via WhatsApp</button>
-      <a class="btn" id="wa-go" href="https://wa.me/628988974647" target="_blank" rel="noopener" hidden>Open WhatsApp to send</a>
+      <a class="btn" id="wa-go" href="https://wa.me/628988974646" target="_blank" rel="noopener" hidden>Open WhatsApp to send</a>
     </form>
   </div>
 </section>
@@ -386,20 +395,26 @@ footer a:hover{color:var(--gold)}
 <footer>
   <span class="logo">Your Name <span>Photographie</span></span>
   Sweet Seventeen · Sangjit · Prewedding · Wedding · Graduation<br>
-  <div style="margin-top:14px"><a href="https://www.instagram.com/yourname.photographie/" target="_blank" rel="noopener">Instagram</a> &nbsp;·&nbsp; <a href="https://wa.me/628988974647" target="_blank" rel="noopener">WhatsApp</a></div>
+  <div style="margin-top:14px"><a href="https://www.instagram.com/yourname.photographie/" target="_blank" rel="noopener">Instagram</a> &nbsp;·&nbsp; <a href="https://wa.me/628988974646" target="_blank" rel="noopener">WhatsApp</a></div>
   <div style="margin-top:18px;opacity:.7">© 2026 YourName Photographie. All rights reserved.</div>
 </footer>
 
-<a class="float" href="https://wa.me/628988974647?text=Hello%20YourName%20Photographie%2C%20I%27d%20like%20to%20ask%20about%20your%20services." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+<a class="float" href="https://wa.me/628988974646?text=Hello%20YourName%20Photographie%2C%20I%27d%20like%20to%20ask%20about%20your%20services." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.38A9.9 9.9 0 1 0 12.04 2Zm5.8 14.1c-.25.7-1.45 1.34-2 1.4-.52.06-1.17.09-1.88-.12a17 17 0 0 1-1.7-.63c-3-1.3-4.95-4.33-5.1-4.53-.15-.2-1.22-1.62-1.22-3.1 0-1.47.77-2.2 1.04-2.5.27-.3.6-.37.8-.37h.58c.19 0 .44-.07.68.52.25.6.85 2.07.92 2.22.08.15.13.33.03.52-.1.2-.15.32-.3.5-.15.17-.32.38-.45.51-.15.15-.3.31-.13.6.17.3.77 1.27 1.65 2.05 1.13 1 2.09 1.32 2.39 1.47.3.15.47.12.65-.07.17-.2.75-.87.95-1.17.2-.3.4-.25.67-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.35.08.12.08.72-.17 1.42Z"/></svg>
 </a>
 
 <!-- PROJECT VIEW -->
 <div id="pv" role="dialog" aria-modal="true" aria-label="Project">
-  <div class="pv-top"><div class="wrap"><button id="pv-close" type="button">← Back to portfolio</button><span class="eyebrow" id="pv-no"></span></div></div>
   <div class="wrap">
-    <div class="pv-head"><div class="eyebrow" id="pv-cat"></div><h2 id="pv-title"></h2><p class="lead" id="pv-tag"></p><p class="credit" id="pv-credit"></p></div>
+    <div class="pv-head">
+      <button id="pv-close" class="back" type="button">← All projects</button>
+      <div class="eyebrow" id="pv-cat"></div>
+      <h2 id="pv-title"></h2>
+      <p class="lead" id="pv-tag"></p>
+      <dl class="pv-meta" id="pv-meta"></dl>
+    </div>
     <div class="pv-grid" id="pv-grid"></div>
+    <div class="pv-end"><button id="pv-close2" class="back" type="button">← All projects</button></div>
   </div>
 </div>
 
@@ -419,18 +434,18 @@ document.querySelectorAll('[data-img]').forEach(i=>{i.src=IMGS[i.dataset.img]});
 
 /* Add a new project by adding one object here. */
 const PROJECTS=[
-  {title:'Cresentia Audia',category:'Sweet Seventeen',type:'Photo',place:'Tirang Beach, Semarang · 2026',
+  {title:'Cresentia Audia',category:'Sweet Seventeen',type:'Photo',place:'Tirang Beach, Semarang · 2026',loc:'Tirang Beach, Semarang',year:'2026',
    cover:'09',coverPos:'50% 35%',
    tagline:'A quiet, rainy-light session by the sea. White dress, a vintage film camera and the waves doing the rest.',
    photos:['02','06','07','08','09','10','11']},
-  {title:'Joe, Marvel & Lorenzo',category:'Graduation',type:'Photo',place:'Binus University Semarang · 2026',
+  {title:'Joe, Marvel & Lorenzo',category:'Graduation',type:'Photo',place:'Binus University Semarang · 2026',loc:'Binus University Semarang',year:'2026',
    credit:'Excel Dyfans & Oei Ricky',
-   cover:'g07',coverPos:'50% 40%',
+   cover:'g21',coverPos:'50% 40%',
    tagline:'Three friends, one campus. Caps in the air, library light, brick walls and a few staged fights.',
    photos:['g01','g02','g03','g04','g05','g06','g07','g08','g09','g10','g11','g12','g13','g14','g15','g16','g17','g18','g19','g20','g21','g22','g23','g24','g25']},
-  {title:'Nathania',category:'Graduation',type:'Photo',place:'Prasetya Mulya University, BSD · 2024',
+  {title:'Nathania',category:'Graduation',type:'Photo',place:'Prasetya Mulya University, BSD · 2024',loc:'Prasetya Mulya University, BSD',year:'2024',
    credit:'Oei Ricky',
-   cover:'n04',coverPos:'50% 46%',
+   cover:'n08',coverPos:'50% 50%',
    tagline:'Batik, soft organza and a pastel bouquet, shot across the campus bridge, a lecture hall and the garden.',
    photos:['n01','n02','n03','n04','n05','n06','n07','n08','n09']}
 ];
@@ -467,10 +482,11 @@ const pv=$('pv'),lb=$('lb'),lbImg=lb.querySelector('img'),cnt=lb.querySelector('
 let cur=0,list=[],lastFocus=null;
 function openProject(i){
   const p=PROJECTS[i];lastFocus=document.activeElement;list=p.photos;
-  $('pv-no').textContent=String(i+1).padStart(2,'0')+' · '+p.type;
-  $('pv-cat').textContent=p.category+' · '+p.place;
+  
+  $('pv-cat').textContent=p.category+' · '+String(i+1).padStart(2,'0');
   $('pv-title').textContent=p.title;$('pv-tag').textContent=p.tagline;
-  const cr=$('pv-credit');cr.hidden=!p.credit;cr.innerHTML=p.credit?'Photographed by <b>'+p.credit+'</b>':'';
+  const meta=[['Category',p.category],['Location',p.loc],['Year',p.year],['Photography',p.credit],['Collection',p.photos.length+' photos']].filter(m=>m[1]);
+  $('pv-meta').innerHTML=meta.map(m=>'<div><dt>'+m[0]+'</dt><dd>'+m[1]+'</dd></div>').join('');
   const g=$('pv-grid');g.innerHTML='';
   p.photos.forEach((k,j)=>{
     const b=document.createElement('button');b.type='button';b.className='ph';b.setAttribute('aria-label','Open photo '+(j+1));
@@ -480,7 +496,7 @@ function openProject(i){
   pv.classList.add('on');pv.scrollTop=0;document.body.style.overflow='hidden';$('pv-close').focus();
 }
 function closeProject(){pv.classList.remove('on');document.body.style.overflow='';if(lastFocus)lastFocus.focus()}
-$('pv-close').onclick=closeProject;
+$('pv-close').onclick=closeProject;$('pv-close2').onclick=closeProject;
 function show(i){cur=(i+list.length)%list.length;lbImg.src=IMGS[list[cur]];cnt.textContent=String(cur+1).padStart(2,'0')+' / '+String(list.length).padStart(2,'0')}
 function openLb(i){show(i);lb.classList.add('on')}
 function closeLb(){lb.classList.remove('on')}
@@ -503,7 +519,7 @@ $('form').addEventListener('submit',e=>{
   e.preventDefault();
   const v=id=>$(id).value.trim();
   const msg=`Hello YourName Photographie,\n\nName: ${v('name')}\nService: ${v('svc')}\nEvent date: ${v('date')||'-'}\nLocation: ${v('loc')||'-'}\n\n${v('msg')}`;
-  const url='https://wa.me/628988974647?text='+encodeURIComponent(msg);
+  const url='https://wa.me/628988974646?text='+encodeURIComponent(msg);
   const go=$('wa-go');go.href=url;go.hidden=false;
   let w=null;try{w=window.open(url,'_blank')}catch(_){}
   if(w)go.hidden=true;
