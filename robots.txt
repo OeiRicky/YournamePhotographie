@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yournamephotographie.web.id/sitemap.xml
